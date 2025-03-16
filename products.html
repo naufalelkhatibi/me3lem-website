@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Available Products - Affordable AirPods</title>
+  <title>Products - Me3lem</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -12,6 +12,26 @@
       background-color: #f5f5f7;
       color: #1d1d1f;
       text-align: center;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #000;
+      color: #fff;
+    }
+    .header img {
+      height: 40px;
+    }
+    .header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 1rem;
+    }
+    .header nav a:hover {
+      color: #ffd700; /* Gold color for hover effect */
     }
     .product-grid {
       display: grid;
@@ -26,7 +46,9 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .product-card img {
-      max-width: 100%;
+      max-width: 100%; /* Ensures the image doesn't exceed the card width */
+      height: auto; /* Maintains aspect ratio */
+      max-height: 200px; /* Adjust this value to control the maximum height */
       border-radius: 8px;
     }
     .product-card h3 {
@@ -53,15 +75,24 @@
   </style>
 </head>
 <body>
+  <div class="header">
+    <a href="index.html">
+      <img src="logo.png" alt="Me3lem Logo">
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
   <h1>Available Products</h1>
   <div class="product-grid">
     <div class="product-card">
-      <img src="airpods_pro.png" alt="AirPods Pro">
+      <img src="airpods-pro.jpg" alt="AirPods Pro">
       <h3>AirPods Pro</h3>
-      <p>Active Noise Cancellation | Spatial Audio | €50</p>
+      <p>Active Noise Cancellation | Spatial Audio | €199</p>
       <a href="https://www.snapchat.com/add/me3lem_frrr" target="_blank">Contact to Order</a>
     </div>
-    <!-- Add more products here -->
-  </div>
-</body>
-</html>
+    <div class="product-card">
+      <img src="airpods-3.jpg" alt="AirPods 3rd Gen">
+      <h3>AirPods (3rd Gen)</h3
