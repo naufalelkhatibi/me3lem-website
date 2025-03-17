@@ -59,17 +59,18 @@
       font-size: 0.9rem;
       color: #666;
     }
-    .product-card a {
+    .product-card button {
       display: inline-block;
       margin-top: 10px;
       padding: 10px 20px;
       background-color: #007aff;
       color: #fff;
-      text-decoration: none;
+      border: none;
       border-radius: 25px;
       font-size: 0.9rem;
+      cursor: pointer;
     }
-    .product-card a:hover {
+    .product-card button:hover {
       background-color: #005bb5;
     }
     .order-form {
@@ -118,16 +119,10 @@
   <h1>Available Products</h1>
   <div class="product-grid">
     <div class="product-card">
-      <img src="airpods-pro.jpg" alt="AirPods Pro">
+      <img src="airpods_pro.png" alt="AirPods Pro">
       <h3>AirPods Pro</h3>
       <p>Active Noise Cancellation | Spatial Audio | €199</p>
       <button onclick="showOrderForm('AirPods Pro')">Order Now</button>
-    </div>
-    <div class="product-card">
-      <img src="airpods-3.jpg" alt="AirPods 3rd Gen">
-      <h3>AirPods (3rd Gen)</h3>
-      <p>Spatial Audio | Sweat and Water Resistant | €149</p>
-      <button onclick="showOrderForm('AirPods 3rd Gen')">Order Now</button>
     </div>
     <!-- Add more products here -->
   </div>
