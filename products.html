@@ -46,9 +46,9 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .product-card img {
-      max-width: 100%; /* Ensures the image doesn't exceed the card width */
-      height: auto; /* Maintains aspect ratio */
-      max-height: 200px; /* Adjust this value to control the maximum height */
+      max-width: 100%;
+      height: auto;
+      max-height: 200px;
       border-radius: 8px;
     }
     .product-card h3 {
@@ -72,6 +72,36 @@
     .product-card a:hover {
       background-color: #005bb5;
     }
+    .order-form {
+      margin: 40px auto;
+      max-width: 400px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+    .order-form input, .order-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .order-form button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007aff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .order-form button:hover {
+      background-color: #005bb5;
+    }
   </style>
 </head>
 <body>
@@ -88,9 +118,65 @@
   <h1>Available Products</h1>
   <div class="product-grid">
     <div class="product-card">
-      <img src="airpods_pro.png" alt="AirPods Pro">
+      <img src="airpods-pro.jpg" alt="AirPods Pro">
       <h3>AirPods Pro</h3>
-      <p>Active Noise Cancellation | Spatial Audio | €50</p>
-      <a href="https://www.snapchat.com/add/me3lem_frrr" target="_blank">Contact to Order</a>
+      <p>Active Noise Cancellation | Spatial Audio | €199</p>
+      <button onclick="showOrderForm('AirPods Pro')">Order Now</button>
     </div>
-   
+    <div class="product-card">
+      <img src="airpods-3.jpg" alt="AirPods 3rd Gen">
+      <h3>AirPods (3rd Gen)</h3>
+      <p>Spatial Audio | Sweat and Water Resistant | €149</p>
+      <button onclick="showOrderForm('AirPods 3rd Gen')">Order Now</button>
+    </div>
+    <!-- Add more products here -->
+  </div>
+
+  <!-- Order Form (Hidden by Default) -->
+  <div id="orderForm" class="order-form" style="display: none;">
+    <h2>Place Your Order</h2>
+    <form id="orderFormDetails">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <input type="tel" id="phone" placeholder="Your Phone Number" required>
+      <input type="text" id="product" readonly required>
+      <textarea id="notes" placeholder="Additional Notes (optional)"></textarea>
+      <button type="submit">Submit Order</button>
+    </form>
+  </div>
+
+  <script>
+    // Show the order form and prefill the product name
+    function showOrderForm(productName) {
+      document.getElementById('orderForm').style.display = 'block';
+      document.getElementById('product').value = productName;
+    }
+
+    // Handle form submission
+    document.getElementById('orderFormDetails').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        product: document.getElementById('product').value,
+        notes: document.getElementById('notes').value,
+      };
+
+      // Replace with your Google Apps Script URL
+      const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+
+      fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => alert('Order submitted successfully!'))
+        .catch((error) => alert('Error submitting order. Please try again.'));
+    });
+  </script>
+</body>
+</html>
